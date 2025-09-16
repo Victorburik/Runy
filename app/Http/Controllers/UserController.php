@@ -40,7 +40,6 @@ class UserController extends Controller
             'email.unique' => 'E-mail já cadastrado.',
         ]);
 
-        // Atualiza dados
         $user->name = $request->name;
         $user->email = $request->email;
         if ($request->filled('password')) {
@@ -75,21 +74,17 @@ class UserController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Verifica senha
         if (!Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages(['password' => 'Senha incorreta.']);
         }
 
-        // Impede exclusão se houver transferências pendentes
         if ($user->sentTransfers()->where('status', 'pending')->exists() ||
             $user->receivedTransfers()->where('status', 'pending')->exists()) {
             throw ValidationException::withMessages(['password' => 'Não é possível excluir a conta com transferências pendentes.']);
         }
 
-        // Notifica exclusão (opcional)
         SendNotificationJob::dispatch($user, null, 0, "Sua conta foi excluída.");
 
-        // Exclui usuário (soft delete, se configurado)
         $user->delete();
 
         Auth::logout();
