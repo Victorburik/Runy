@@ -1,5 +1,4 @@
-Runy
-Runy é um sistema completo de gerenciamento de usuários e transações financeiras. Desenvolvido com Laravel e Livewire, ele oferece uma solução robusta para cadastro, autenticação e gerenciamento de perfis, além de funcionalidades essenciais como depósitos e transferências entre usuários.
+transfer system é um sistema completo de gerenciamento de usuários e transações financeiras. Desenvolvido com Laravel e Livewire, ele oferece uma solução robusta para cadastro, autenticação e gerenciamento de perfis, além de funcionalidades essenciais como depósitos e transferências entre usuários.
 
 Requisitos
 Para rodar este projeto, você precisa ter o seguinte ambiente configurado:
