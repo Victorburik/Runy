@@ -21,7 +21,7 @@ Siga os passos abaixo para instalar e executar o projeto localmente:
 
 Clone o repositório:
 
-git clone https://github.com/Victorburik/runy.git
+git clone https://github.com/Victorburik/TransferSystem.git
 cd runy
 
 Instale as dependências:
